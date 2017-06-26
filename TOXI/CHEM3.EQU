@@ -1,0 +1,95 @@
+C =====================================================================
+C-*-*-*-*-*  Chemical 3 Constants for Toxiwasp  *-*-*-*-*-*-*
+C----------------------------------------------------------------------
+C  Last Revised:  Date: Tuesday, 2 June 1987.  Time: 11:29:32.
+C
+C  Correction History:
+C
+C
+C----------------------------------------------------------------------
+C
+C
+C --------------------  General Properties ---------------------
+C
+        EQUIVALENCE (CONST (1208),  ATMOS3)
+        EQUIVALENCE (CONST(1281),  MOLWT), (CONST(1282),   SOLG)
+        EQUIVALENCE (CONST(1283),  VAPRG), (CONST(1284),   LKOW)
+        EQUIVALENCE (CONST(1285),SFLG(1)), (CONST(1286),SFLG(2))
+        EQUIVALENCE (CONST(1287),SFLG(3)), (CONST(1288),SFLG(4))
+C
+C
+C
+C ---------------------- Ionization -----------------------------
+C
+        EQUIVALENCE (CONST(1291), PKA(1)), (CONST(1292), PKA(2))
+        EQUIVALENCE (CONST(1293), PKA(3)), (CONST(1294), PKA(4))
+        EQUIVALENCE (CONST(1295),EPKA(1)), (CONST(1296),EPKA(2))
+        EQUIVALENCE (CONST(1297),EPKA(3)), (CONST(1298),EPKA(4))
+        EQUIVALENCE (CONST(1299),TREFI)
+C
+C
+C ---------------------- Sorption ------------------------------
+C
+        EQUIVALENCE (CONST(1301),     LKOC), (CONST(1302),       A0)
+        EQUIVALENCE (CONST(1303),       A1), (CONST(1306),   NUX(1))
+        EQUIVALENCE (CONST(1311),PIXC(1,1)), (CONST(1326), PIDOC(1))
+C
+C
+C ------------------------ Volatilization ----------------------------
+C
+        EQUIVALENCE (CONST(1336),       XV), (CONST(1337),    HENRY)
+        EQUIVALENCE (CONST(1338),      KLT), (CONST(1339),     KVOG)
+        EQUIVALENCE (CONST(1340),       KV)
+C
+C
+C -------------------- Microbial Degradation -------------------------
+C
+        EQUIVALENCE (CONST(1341),      KBW), (CONST(1342),      KBS)
+        EQUIVALENCE (CONST(1343),     THBW), (CONST(1344),     THBS)
+        EQUIVALENCE (CONST(1346),KBIO20(1,1)),(CONST(1361),Q10DIS(1))
+        EQUIVALENCE (CONST(1366),Q10DOC(1)), (CONST(1371),Q10PAR(1))
+        EQUIVALENCE (CONST(1376),    YBW31), (CONST(1377),    YBW32)
+        EQUIVALENCE (CONST(1378),    YBS31), (CONST(1379),    YBS32)
+C
+C
+C ------------------------- Hydrolysis ------------------------------
+C
+        EQUIVALENCE (CONST(1381),     KHOH), (CONST(1382),      KHN)
+        EQUIVALENCE (CONST(1383),      KHH), (CONST(1384),    TREFH)
+        EQUIVALENCE (CONST(1386), KH20(1,1,1))
+        EQUIVALENCE (CONST(1431),  EHOH(1)), (CONST(1436),   EHN(1))
+        EQUIVALENCE (CONST(1441),   EHH(1)), (CONST(1446),   YHOH31)
+        EQUIVALENCE (CONST(1447),   YHOH32), (CONST(1448),    YHN31)
+        EQUIVALENCE (CONST(1449),    YHN32), (CONST(1450),    YHH31)
+        EQUIVALENCE (CONST(1451),    YHH32), (CONST(1452),    THHOH)
+        EQUIVALENCE (CONST(1453),     THHN), (CONST(1454),     THHH)
+C
+C
+C ------------------------- Oxidation -------------------------------
+C
+        EQUIVALENCE (CONST(1456),       KO), (CONST(1457),       THO)
+        EQUIVALENCE (CONST(1458),    TREFO), (CONST(1461),KOX20(1,1))
+        EQUIVALENCE (CONST(1476),   EOX(1)), (CONST(1481),    YOX31)
+        EQUIVALENCE (CONST(1482),    YOX32)
+C
+C ------------------------- Photolysis ----------------------------
+C
+        EQUIVALENCE (CONST(1486),   XPHOTO), (CONST(1487),       KF)
+        EQUIVALENCE (CONST(1488),    RFLATG), (CONST(1489),      THF)
+        EQUIVALENCE (CONST(1491),  KDPG(1))
+        EQUIVALENCE (CONST(1496),LAMAXG(1)), (CONST(1501), ABS31(1))
+        EQUIVALENCE (CONST(1551), ABS32(1)), (CONST(1601), ABS33(1))
+        EQUIVALENCE (CONST(1651), ABS34(1)), (CONST(1701), ABS35(1))
+        EQUIVALENCE (CONST(1751),QUANTG(1,1))
+        EQUIVALENCE (CONST(1766),     YF31), (CONST(1767),     YF32)
+C
+C
+C ----------------------- Extra Reactions ---------------------------
+C
+        EQUIVALENCE (CONST(1771),       KE), (CONST(1772),      THE)
+        EQUIVALENCE (CONST(1773),    TREFE), (CONST(1776),KE20(1,1))
+        EQUIVALENCE (CONST(1791),   EEX(1)), (CONST(1796),     YE31)
+        EQUIVALENCE (CONST(1797),     YE32)
+C
+C---------------------  End of Chem 3 Equivalences  -------------------
+

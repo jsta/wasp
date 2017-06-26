@@ -1,0 +1,145 @@
+C=======================================================================
+C          *-*-*-*-  TOXI5 INCLUDE COMMON BLOCK  -*-*-*-*
+C=======================================================================
+C  Last Revised: Date: Monday, 25 February 1991.  Time: 09:15:35.
+C-----------------------------------------------------------------------
+C
+C                       WASP Dimensionable Variables
+C                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C     ASSIGN    SY = Number of State Variables (Typically 6)
+C               SG = Number of Segments
+C               CX = Number of Kinetical Constants
+C               PR = Number of Segment Parameters
+C               BC = Number of Boundary Segments
+C               WK = Number of Loads
+C               TF = Number of Env. Time Functions
+C               MB = Maximum number of Time Breaks for all Functions
+C              MNF = Number of Flow Fields (Typically 6)
+C              MNI = Number of Time Functions per Inflow field
+C
+C
+C                         Input/Output Units
+C                         ~~~~~~~~~~~~~~~~~~
+C               IN = The User Provided Input Dataset
+C              OUT = WASP generated Echoing of User Input File
+C            HYDRO = Hydrodynamic Interface file
+C              AUX = Non Point Source File for Loads
+C             MESS = Runtime Message File
+C           RESTRT = Model Restart File
+C            ITRNS = Water Transport Analysis Table
+C            IMASS = Mass Balance Analysis Table
+C             IDMP = Simulation Result Dump File
+C             HDBG = Hydrodynamic Debug Table (Set IQOPT = 10)
+C              CTL = Runtime Control File
+C
+C----------------------------------------------------------------------
+C
+      INTEGER SY, SG, S2, CX, PR, BC, WK, TF, MP, MB, MB1,
+     1        MNF, MNI, M30, M50, M70, M73, M75, SY1, OUT, IN,
+     2        HYDRO, AUX, MESS, RESTRT, HDBG, CTL
+C
+      INTEGER ITRNS, IMASS, IDMP, SYSBY, RBY, QBY, TOPSEG
+C
+      PARAMETER (SY=6, SG=300, S2=SG*6, CX=1800, PR=23, BC=50, WK=50,
+     +   TF=17, MP=40, MB=400, MD=1, SY1=SY+1, MB1=MB+1, MNF=6,MNI=10,
+     +   M30=2*BC*SY, M50=2*WK*SY, M70=S2+1, M73=2*TF, M75=2*MB,
+C
+C    +   Define all I/O units:
+C
+     +   IN=10, OUT=11, HYDRO=7, AUX=4, MESS=6, RESTRT=9,
+     +   ITRNS=16, IMASS=20, IDMP=15, HDBG=8, CTL=1)
+C
+C----------------------------------------------------------------------
+C
+      REAL   NVOLT, NBCT, NWKT, NFUNT, NTF, NTB, NTW, MBC, MWK,
+     +       MFUNC, NPSWK, C
+C
+      REAL*8 AIMASS, AOMASS, RIMASS, ROMASS, XLMASS, XKMASS, XBMASS,
+     +       AIMSG,AOMSG,RIMSG,XLMSG,XBMSG,XMASSG,
+     +       XMASS0, CD, XBFLUX, XKFLUX, DTMAX, MVOL
+C
+C----------------------------------------------------------------------
+C
+      CHARACTER*40 CHEML(SY)
+      INTEGER   DMPCT, IPTR, TRNUM
+      LOGICAL WQ,WISP
+      INTEGER NUMLOAD,NUMSYS, NPS_SYS(SY), NPS_UNIT(SY), NPS_SEG(SG),
+     +        NP_SEG(SG), LDSYS(SY), TFLAG
+      REAL NP_LOAD(SY,SG), NPTIME
+      CHARACTER NPSTYP*15, NPSNAME(SY)*15,INTERDES*10, WSPERR*32,
+     +          WSPATH*30,ERRFIL*12,INFIL*12
+C      
+C----------------------------------------------------------------------
+C          INTEGERS
+C----------------------------------------------------------------------
+C
+      COMMON /INTGRS/ NOSYS,TRNUM,NCHEM,NOSEG,ISYS,ISEG,ISIM,INITB,
+     +                IPRNT,IDISK,IREC,MXDMP,NBCPSY,NWKPSY,NEGSLN,ICRD,
+     +                IVOPT,NOV,IQOPT,INTYP,NOPAM,NFUNC,ITIMV,ITCHCK,
+     +                MXITER,INPERR,NFIELD,MFLAG,NRFLD,IBEDV,KSIM,JMASS,
+     +                ICFL,IDSY,IDSG1,IDSG2,MXSYS,MXSEG,LDAY,NDAY,
+     +                NEWDAY,NWKS,NOWKS,LOPT,ITRNIT,IFIRST,IPROP, TFLAG,
+     +                NPSINIT
+C
+      COMMON /INTGR1/ SYSBY(SY),RBY(SY),QBY(SY),IBCOP(SY),
+     +                NOBC(SY),IWKOP(SY),NOWK(SY),ITIMF(TF),NCONS(SY1),
+     +                NINQ(MNF),IBOTSG(SG),NTEX(MNF),TOPSEG(SG),
+     +                IFIELD(SY),ITYPE(SG),INPS(WK)
+C
+      COMMON /ISCRT1/ NBRK30(SY,BC),NBRK50(SY,WK),NBRK72(TF),NBRK73(TF),
+     +                NBRK75(TF),ISEGOUT(6)
+
+C
+      COMMON /INTGR2/ IWK(SY,WK),IBC(SY,BC),NOQS(MNF,MNI),
+     +                ITIMB(SY,BC),ITIMW(SY,WK),ITIMQ(MNF,MNI),
+     +                NBRKQ(MNF,MNI), NORS(MNF,MNI),NBRKR(MNF,MNI),
+     +                ITIMR(MNF,MNI)
+C                                                             
+      COMMON /INTGR3/ IQ(MNF,MNI,S2),JQ(MNF,MNI,S2),IR(MNF,MNI,S2),
+     +                JR(MNF,MNI,S2), DMPCT, IPTR, IEND, ISTART,IREPET,
+     +                IHINFO
+C
+C----------------------------------------------------------------------
+C          REALS
+C----------------------------------------------------------------------
+C
+      COMMON /REALS/ TIME,DT,TZERO,SCALT,TEND,PRNT,OMEGA,NVOLT,NTF,
+     +               TDINTS,TMARKS,TADJ,DAY,DQTIME,DRTIME,DWKTIM,ADFAC,
+     +               TPRINT,CHEML, DTMAX,FTIME
+C
+      COMMON /REAL1/ CMAX(SY),CMIN(SY),BFUNC(TF),
+     +               MFUNC(TF),NFUNT(TF),NTB(SY),NTW(SY),DSED(SY),
+     +               FRW(SG),B0VOL(SG),DEPTHG(SG),VELOCG(SG),VMULT(SG),
+     +               VEXP(SG),DMULT(SG),DXP(SG),QSEG(SG),PRINT(Mb),
+     +               TPRNT(mb),SUMM (SY,SG)
+C
+      COMMON /REAL2/ BBC(SY,BC),BWK(SY,WK),MBC(SY,BC),C(SY,SG),
+     +               MWK(SY,WK),NBCT(SY,BC),NWKT(SY,WK),QINT(MNF,MNI),
+     +               TNQ(MNF,MNI),BRINT(MNF,MNI),TNR(MNF,MNI),
+     +               NPSWK(SY,WK)
+C
+      COMMON /RSCRT1/FILE30(MB,M30),FILE50(MB,M50),FILE73(MB,M73), 
+     +               FILE75(M75,1),FILE80(SY,20),QSUM(0:SG+1,0:SG+1)
+C
+      COMMON /REAL3/ BQ(MNF,MNI,S2),F(MNF,SY,SG),QT(MNF,MNI,MB),
+     +               TQ(MNF,MNI,MB),BR(MNF,MNI,S2),RT(MNF,MNI,MB),
+     +               TR(MNF,MNI,MB)
+C
+      COMMON /MYLOG/ WISP,WSPERR,WSPATH,ERRFIL,INFIL
+C
+      COMMON /EQUV1/ CONST(CX)
+C
+      COMMON /EQUV2/ PARAM(SG,PR)
+      COMMON /NPS/ NUMLOAD, NPS_SYS, NPS_SEG, NP_SEG, LDSYS,NP_LOAD,
+     .             NPTIME, NUMSYS
+C
+      COMMON /MASS1/ AIMASS,AOMASS,RIMASS,ROMASS,XLMASS,XKMASS,
+     +               XBMASS,XMASS0,AIFLUX,AOFLUX,RIFLUX,ROFLUX,XBFLUX,
+     +               AIMSG(SY,SG),AOMSG(SY,SG),RIMSG(SY,SG),
+     +               XLMSG(SY,SG),XBMSG(SY,SG),XMASSG(SY,SG),XKFLUX
+C
+      COMMON /MASS2/ CD(SY,SG),BVOL(SG),MVOL(SG)
+      COMMON /LOGDATA/ WQ
+C
+C======================================================================
+

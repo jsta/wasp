@@ -1,0 +1,19 @@
+C
+C======================================================================
+C          ENVIRON.INC include common block for TOXIWASP 4.0
+C======================================================================
+C   Last Revised:  Date: Thursday, 1 October 1987.  Time: 13:47:06.
+C
+C   Correction History:
+C
+C----------------------------------------------------------------------
+C
+      COMMON /ENVIRO1/ TMP, TK, H, OH, PORE, SOLIDS, SDOC, SOXRAD,
+     1                 SBAC, VEL, SREAER, SDEPTH, SWIND, CHL, ATMP,
+     2                 SDFAC, WINDN, PHNS, PHNW, REARN, AIRTMPN, CHLN,
+     3                 BACNW, BACNS
+C
+      COMMON /ENVIRO2/ SFOC(3), SBACS(3), TEMPN(4), VELN(4)
+C
+C======================================================================
+

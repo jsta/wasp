@@ -1,0 +1,22 @@
+C
+C======================================================================
+C          PHYSCHM.INC include common block for TOXIWASP 4.0
+C======================================================================
+C   Last Revised:  Date: Thursday, 1 October 1987.  Time: 15:23:21.
+C
+C   Correction History:
+C
+C----------------------------------------------------------------------
+C
+      REAL KOW, KOC, KAW, KA
+C
+      COMMON/PHYSCH1/ KOW, KOC, KAW, DIFFA, DIFFW, R
+C
+      COMMON/PHYSCH2/ KA(5)
+C
+      COMMON/PHYSCH3/ PART(3,5)
+C
+C======================================================================
+C                      End of PHYSCHM.INC
+C======================================================================
+

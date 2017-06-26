@@ -1,0 +1,184 @@
+C============  EUTROWASP KINETIC INCLUDE COMMON BLOCK  5/12/87
+CRBA--Date: Tuesday, 1 June 1993.  Time: 09:19:37.
+C     Added IAVSG,CCHLX(SG)
+C
+      LOGICAL    SEDSEG,SW16A
+      REAL       AVDEPE,AVVELE,CFOREA,EXPRED,EXPREV,KOREA,REAK,
+     1           DIF,TRANDP,WINDF,NH3,NO3,LIMIT,NO2,NUTLIM,K1320C,
+     2           K1320T,K1C,K1T,LGHTSW,IS1,KMNG1,KMPG1,K1RC,K1RT,K1D,
+     3           KMPHYT,NCRB,K58C,K58T,K1013C,K1013T,KNIT,K140C,K140T,
+     4           KNO3,KDC,KDT,KBOD,ITOT,KPZDC,KPZDT,KOPDC,KOPDT,KONDC,
+     5           KONDT,KDSC,KDST,IAVSG,KE(5),TEMP(4),TMPSG(SG),KESG(SG),
+     6           RLGHTS(0:SG,2),SOD1D(SG),FNH4(SG),FPO4(SG),KESHD,IAV,
+     7           IMAX,I0,KA,K20,TMPFN(SG),KEFN(SG), K2, VELN(4),IAVBOT,
+     8           ITOTLIM(SG),VELFN(SG), SAL(SG), SODTA(SG),K2HSAVE, 
+     9           K2WSAVE,K1G,TEMPBOD,ITOTMP,REARSG(SG),REAR,ZOOSG(SG),
+     1           CCHLX(SG),IAVSG,IS1X(SG),IAVBOTX(SG)
+C
+      COMMON/EUTRO1/
+     .     FDAY,      H,      I,     CN,     CS,     C1,     C2,
+     .       C3,     C4,     C5,     C6,     C7,     C8,     C9,
+     .       GP,     I0,     KA,     KE,     PI,     SA,     TN,
+     .       DO,     ON,     OP
+C
+      COMMON/EUTRO2/
+     .      K20,    C10,    C11,    C12,    C13,    C14,    C15,
+     .      C16,    C17,    C18,    C19,    DPP,    DP1,    DP2,
+     .      DZ1,    DZ2,    DIF,    GPP,    GP1,    GP2,    GZ1,
+     .      GZ2,    IAV,    IKE,    ITO,    NH3,    NO3,    SKE,
+     .      SK9,    SOD,    SR9,    STP,    SUM,    TIN,    TIP, 
+     .      TON,    TOP,    TSI,    VEL,    VOL,    ZOO,    NO2,
+     .      IAVBOT
+C
+      COMMON/EUTRO3/
+     .     FLUX,   GIT1,   GIT2,   IBOT,   IMAX,   ITMP,   ITOT,
+     .     REAK,   PHYT,   RADJ,   RESP,   SK17,   SK58,   SK68,
+     .     SK78,   SK8P,   SR17,   SR5P,   SR53,   SR54,   SR6P,
+     .     SR63,   SR64,   SR7P,   SR73,   SR74,   SR8P,   SR83,
+     .     SR84,   TEMP,   FLOW,   WIND,   UBOD,   OPO4,   CBOD,
+     .     BBOD,   BOD5,   PSED,   EXCH
+C
+      COMMON/EUTRO4/
+     .    SK14D,  ASSIM,  CCHL1,  SK228,  KOREA,  WINDF,  SK18D,
+     .    PFLUX,  BFLUX,  PEXCH,  TFNH4,  SK210,  SR822,  TFPO4,
+     .    CCHL2,  CHLA1,  CHLA2,  DEATH,  DELO2,  DERIV,  DODEF,
+     .    DOMAX,  DOMIN,  DTDAY,  DUMMY,  FRPIP,  GRAZP,  HGRAZ, 
+     .    KESHD,  PTIME,  RATIO,  RESP2,  RNUTR,  SK140,  SALFN,
+     .    REAR
+C
+      COMMON/EUTRO5/
+     .    SK16P,  SK180,  SK19P,  SK19Z,  SR10P,  SR103,  SR104,
+     .    SR11P,  SR113,  SR114,  SR12P,  SR123,  SR124,  SR13P,
+     .    SR133,  SR134,  SR15P,  SR18P,  SR183,  SR184,  SR190,
+     .    SR80P,  STP20,  SW16A,  TCHLA,  TEMP1,  TEMP2,  TEMP3,
+     .    TNLIP,  XEMP1,  XEMP2,  XEMP3,  XEMP4,  ZRESP,  LIMIT,
+     .    TEMPBOD,ITOTMP
+C
+      COMMON/EUTRO6/
+     .   CHLA1X, CHLA2X, FXNAVG, GITMAX, GITMX1, GITMX2, GPMDP1,
+     .   GPMDP2, GZMDZ1, GZMDZ2, HGRAZE, PNH3G1, PNH3G2,
+     .   RLIGHT, RTOXG1, RTOXG2, SEDSEG, SEDVLS, SK1013, SK1113,
+     .   SK1213, SK13P1, SK13P2, SK1314, SK14P1, SK14P2, SK1516,
+     .   SK1814, SK1913, SK1918, SR10PU, SR103U, SR11PU, SR113U,
+     .   SALIN(SG), KAINIT, AIRTMP, K2WSAVE, K2HSAVE, XICECVR
+C
+      COMMON/EUTRO7/
+     .   SR12PU, SR123U, SR13NF, SR13ON, SR13PU, SR133U, SR1413,
+     .   SR15PG, SR1615, SR18PU, SR183U, SR19PA, SR19PB, SR5PUN,
+     .   SR53UN, SR6PUN, SR63UN, SR7PUN, SR73UN, SR8PUN, SR83UN,
+     .   TCHLAX, TZOOPL, XDUM89, XDUM95, XEMPRC, ZGRAZE, ZRESP1,
+     .   ZRESP2, BOTBOD, DEPTHM, WINDSG, VELSGM, TRANDP, TEMPSG, 
+     .   SR1821, SK2118, SK1921, PSEDIM, BSEDIM, AVDEPE, AVVELE, 
+     .   CFOREA, EXPRED, EXPREV, SR19P
+C
+C
+C
+C*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+C
+C                EQUIVALENCES FOR KINETICAL ROUTINES
+C
+C*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+C
+C      EQUIVALENCE   GLOBAL CONSTANTS (1-10) ARE RESERVED
+      EQUIVALENCE
+     .     (CONST(1), WTYPE) 
+C
+C
+C======================================================================
+C                  *-*-*  SYSTEM 1 CONSTANTS *-*-*
+C======================================================================
+      EQUIVALENCE
+     .     (CONST(11),K1320C) , (CONST(12),K1320T) , (CONST(13),KNIT  )
+C
+C                  CONSTANTS 14-20 RESERVED FOR SYSTEM 1 
+C
+C======================================================================
+C                 *-*-*  SYSTEM 2 CONSTANTS *-*-*
+C======================================================================
+      EQUIVALENCE
+     .     (CONST(21),K140C ) , (CONST(22),K140T ) , (CONST(23),KNO3  )
+C
+C                  CONSTANTS 23-30 RESERVED FOR SYSTEM 2
+C
+C======================================================================
+C                 *-*-*  SYSTEM 3 CONSTANTS *-*-*
+C======================================================================
+C      EQUIVALENCE
+C
+C                  CONSTANTS 31-40 RESERVED FOR SYSTEM 3
+C
+C======================================================================
+C                 *-*-*  SYSTEM 4 CONSTANTS *-*-*
+C======================================================================
+      EQUIVALENCE 
+     .     (CONST(41),K1C   ) , (CONST(42),K1T   ) , (CONST(43),LGHTSW)
+     .   , (CONST(44),PHIMX ) , (CONST(45),XKC   ) , (CONST(46),CCHL  )
+     .   , (CONST(47),IS1   ) , (CONST(48),KMNG1 ) , (CONST(49),KMPG1 )
+     .   , (CONST(50),K1RC  ) , (CONST(51),K1RT  ) , (CONST(52),K1D   )
+     .   , (CONST(53),K1G   ) , (CONST(54),NUTLIM) , (CONST(55),KPZDC ) 
+     .   , (CONST(56),KPZDT ) , (CONST(57),PCRB  ) , (CONST(58),NCRB  ) 
+     .   , (CONST(59),KMPHYT)
+C
+C                  CONSTANTS 58-70 RESERVED FOR SYSTEM 4
+C
+C======================================================================
+C                 *-*-*  SYSTEM 5 CONSTANTS *-*-*
+C======================================================================
+C
+      EQUIVALENCE
+     .     (CONST(71),KDC   ) , (CONST(72),KDT   ), (CONST(73),KDSC  ) 
+     .   , (CONST(74),KDST  ) , (CONST(75),KBOD  )  
+C
+C                  CONSTANTS 76-80 RESERVED FOR SYSTEM 5
+C
+C======================================================================
+C                 *-*-*  SYSTEM 6 CONSTANTS *-*-*
+C======================================================================
+C
+C
+      EQUIVALENCE
+     .    (CONST(81),OCRB  ) , (CONST(82),K2)
+C
+C                  CONSTANTS 82-90 RESERVED FOR SYSTEM 6 
+C
+C
+C======================================================================
+C                 *-*-*  SYSTEM 7 CONSTANTS *-*-*
+C======================================================================
+C
+      EQUIVALENCE
+     .     (CONST(91),K1013C) , (CONST(92),K1013T) , (CONST(93),KONDC )
+     .   , (CONST(94),KONDT ) , (CONST(95),FON   )
+C
+C                  CONSTANTS 96-100 RESERVED FOR SYSTEM 7
+C
+C
+C======================================================================
+C                 *-*-*  SYSTEM 8 CONSTANTS *-*-*
+C======================================================================
+C
+      EQUIVALENCE
+     .     (CONST(100),K58C ) , (CONST(101),K58T ) , (CONST(102),KOPDC)
+     .   , (CONST(103),KOPDT) , (CONST(104),FOP  )
+C
+C                  CONSTANTS 104-110 RESERVED FOR SYSTEM 8
+C
+C======================================================================
+C        *-*-*  ENVIRONMENTAL PARAMETER EQUIVALENCES *-*-*
+C======================================================================
+C
+      EQUIVALENCE
+     .   (PARAM(1,1), VELFN(1)) , (PARAM(1,2),SAL(1))
+     .  ,(PARAM(1,3), TMPSG(1)) , (PARAM(1,4),TMPFN(1))
+     .  ,(PARAM(1,5), KESG(1))  , (PARAM(1,6),KEFN(1))
+C
+CRBA--Date: Tuesday, 1 June 1993.  Time: 09:21:45.
+      EQUIVALENCE               
+     .   (PARAM(1,7),FNH4(1))   , (PARAM(1,8),   FPO4(1)),
+     .   (PARAM(1,9),SOD1D(1))  , (PARAM(1,10),RLGHTS(1,1)),
+     .   (PARAM(1,12),SODTA(1)) , (PARAM(1,13), ITOTLIM(1)),
+     .   (PARAM(1,14),REARSG(1)), (PARAM(1,15),ZOOSG(1)),
+     .   (PARAM(1,21),CCHLX(1)),  (PARAM(1,20),IS1X(1)),
+     .   (PARAM(1,19),IAVBOTX(1))
+C
+

@@ -1,0 +1,19 @@
+C======================================================================
+C           OPTION.INC include common block for TOXIWASP4.0
+C======================================================================
+C   Last Revised:  Date: Thursday, 1 October 1987.  Time: 14:13:38.
+C
+C   Correction History:
+C
+C----------------------------------------------------------------------
+C
+      INTEGER SPFLG, SEGTYPE
+C
+      COMMON /OPTIO1/ IV, IPHOTO, IWB, SEGTYPE, IDWN
+C
+      COMMON /OPTIO2/ SPFLG(0:4)
+C
+C======================================================================
+C                      End of OPTION.INC
+C======================================================================
+

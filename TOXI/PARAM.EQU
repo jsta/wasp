@@ -1,0 +1,26 @@
+C=====================================================================
+C                 Parameter Equivalence Statements
+C=====================================================================
+C  Last Revised:  Date: Thursday, 1 October 1987.  Time: 14:18:40.
+C
+C  Correction History:
+C
+C----------------------------------------------------------------------
+C
+      REAL TEMP (SG), PH (SG), VELFN (SG),
+     1     DOC (SG), BAC (SG), OXRAD (SG), DFACG , XKE2 (SG),
+     2     CHPHL (SG), WVEL (SG), REAER (SG), TMPFN (SG),
+     3     EXENV(SG)
+C
+      REAL FOC (SG, 3), TOTKG(SG,3)
+C
+      EQUIVALENCE (PARAM (1, 1), VELFN(1)), (PARAM (1, 2),  TMPFN(1))
+      EQUIVALENCE (PARAM (1, 3),  TEMP(1)), (PARAM (1, 4),   WVEL(1))
+      EQUIVALENCE (PARAM (1, 5), REAER(1)), (PARAM (1, 6),    DOC(1))
+      EQUIVALENCE (PARAM (1, 7), FOC(1,1)), (PARAM (1,10),  CHPHL(1))
+      EQUIVALENCE (PARAM (1,11),    PH(1)), (PARAM (1,12),   XKE2(1))
+      EQUIVALENCE (PARAM (1,13), OXRAD(1)), (PARAM (1,14),    BAC(1))
+      EQUIVALENCE (PARAM (1,15), EXENV(1)), (PARAM (1,16),TOTKG(1,1))
+C
+C======================================================================
+

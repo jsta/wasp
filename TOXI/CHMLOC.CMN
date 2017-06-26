@@ -1,0 +1,30 @@
+C
+C======================================================================
+C          CHMLOC.INC include file for TOXIWASP 4.0
+C======================================================================
+C     Last Revised:  Date: Thursday, 1 October 1987.  Time: 13:36:45.
+C======================================================================
+C
+      REAL LOG10KA, KBW, KBS, KHOH, KHN, KHH, KF, KV, KO, KE,
+     1     MOLWT, LKOW, KLT, LKOC, KVOG
+C
+      REAL NUX (5), KDPG (5), LAMAXG (5), PIDOC (4), Q10DIS (5),
+     1     Q10DOC (5), Q10PAR (5), EHOH (5), EHN (5), EHH (5),
+     2     RFLATG (5), EOX (5), EEX (5), SFLG (4), PKA (4), EPKA (4),
+     3     DISTRIB (4)
+C
+      REAL ABS11(46),ABS12(46),ABS13(46),ABS14(46),ABS15(46),
+     1     ABS21(46),ABS22(46),ABS23(46),ABS24(46),ABS25(46),ABS31(46),
+     2     ABS32(46),ABS33(46),ABS34(46),ABS35(46)
+C
+      REAL KBIO20 (5, 3), KOX20 (5, 3), PIXC (5,3), QUANTG (5, 3),
+     1     KE20 (5, 3)
+C
+      REAL KH20 (5, 3, 3)
+C
+C======================================================================
+C
+C                          End of CHMLOC.INC
+C
+C======================================================================
+

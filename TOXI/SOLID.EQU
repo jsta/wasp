@@ -1,0 +1,15 @@
+C =====================================================================
+C                  -*-*- Solid Constants for Toxiwasp -*-*-
+C----------------------------------------------------------------------
+C  Last Revised:  Date: Friday, 23 October 1987.  Time: 15:20:18.
+C
+C  Correction History:
+C
+C
+C----------------------------------------------------------------------
+C
+        DIMENSION RHO(3)
+        EQUIVALENCE (CONST ( 76),  RHO(1))
+C
+C---------------------  End of Solid Equivalences  -------------------
+

@@ -1,0 +1,27 @@
+C
+C======================================================================
+C              PHOTOL.INC include common block for TOXIWASP 4.0
+C======================================================================
+C   Last Revised:  Date: Thursday, 1 October 1987.  Time: 15:13:18.
+C
+C   Correction History:
+C
+C----------------------------------------------------------------------
+C
+      INTEGER NDAT
+C
+      INTEGER ILM(5)
+C
+      REAL PHTON
+C
+      REAL   RHUMG(13), ATURBG(13), OZONEG(13), CLOUDG(13),
+     1       AVELIT(46), WLAML(46), AIRTYG(13)
+C
+      REAL   ABSORG(3,46,5)
+C
+      COMMON/INTEGER/ NDAT,ILM
+      COMMON/REAL/PHTON,AVELIT,WLAML,ABSORG
+C======================================================================
+C                       End of PHOTOL.INC
+C======================================================================
+

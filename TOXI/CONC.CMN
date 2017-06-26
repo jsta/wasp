@@ -1,0 +1,22 @@
+C
+C======================================================================
+C        CONC.INC include common block for TOXIWASP4.0
+C======================================================================
+C   Last Revised:  Date: Thursday, 1 October 1987.  Time: 13:54:11.
+C
+C   Correction History:
+C
+C----------------------------------------------------------------------
+C
+      COMMON /CONC1/ TOTDOC(3), TOTDIS(3), TOTPAR(3), TOTPAR1(3),
+     1               DISION(3), DOCION(3), PARION(3), TOTION(3),
+     2               TOTDOC1(3), TOTCHEM(3)
+C
+      COMMON /CONC2/ DISTOX(3,5), DOCTOX(3,5)
+C
+      COMMON /CONC3/ PARTOX(3,3,5)
+C
+C======================================================================
+C                       End of CONC.INC
+C======================================================================
+

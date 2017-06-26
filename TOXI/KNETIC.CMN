@@ -1,0 +1,27 @@
+C
+C======================================================================
+C          KNETIC.INC include common block for TOXIWASP 4.0
+C======================================================================
+C   Last Revised:  Date: Thursday, 1 October 1987.  Time: 14:00:48.
+C
+C   Correction History:
+C
+C----------------------------------------------------------------------
+C
+      REAL NEUTH, KH
+C
+      COMMON /KNETC0/ RXNTIM
+C
+      COMMON /KNETC1/ BIOW(3), BIOS(3), ALKH(3), NEUTH(3), ACIDH(3),
+     1                KH(3), FOTO(3), OX(3), EXRN(3),RATE8(3), RATE9(3),
+     2                RATE10(3), TMOLWT(3), TKOW(3), TRH(3), TRO(3),
+     3                TRE(3), TRI(3)
+C
+      COMMON /KNETIC/ RATE(3,6)
+C
+      COMMON /KNETC3/ Y(3,10,3)
+C
+C======================================================================
+C                         End of KNETIC.INC
+C======================================================================
+

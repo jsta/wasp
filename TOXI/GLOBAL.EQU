@@ -1,0 +1,21 @@
+C =====================================================================
+C      -*-*-  Global Environmental Constants for Toxiwasp -*-*-
+C----------------------------------------------------------------------
+C  Last Revised:  Date: Friday, 23 October 1987.  Time: 15:20:07.
+C
+C  Correction History:
+C
+C
+C----------------------------------------------------------------------
+C
+      EQUIVALENCE (CONST (  1),       T0), (CONST (  2),    WTYPE)
+      EQUIVALENCE (CONST (  3),    ELEVG), (CONST (  4),     LATG)
+      EQUIVALENCE (CONST (  5),   AIRTMP), (CONST (  6),    XLITE)
+      EQUIVALENCE (CONST (  7),    DFACG), (CONST (  8),   ATMOS1)
+      EQUIVALENCE (CONST (  9),    TDINT), (CONST ( 10),    DUMMY)
+      EQUIVALENCE (CONST ( 11),CLOUDG(1)), (CONST ( 24),AIRTYG(1))
+      EQUIVALENCE (CONST ( 37), RHUMG(1)), (CONST ( 50),ATURBG(1))
+      EQUIVALENCE (CONST ( 63),OZONEG(1))
+C
+C---------------------  End of Global Equivalences  -------------------
+

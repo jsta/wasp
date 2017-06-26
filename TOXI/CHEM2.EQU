@@ -1,0 +1,95 @@
+C =====================================================================
+C-*-*-*-*-*  Chemical 2 Constants for Toxiwasp  *-*-*-*-*-*-*
+C----------------------------------------------------------------------
+C  Last Revised:  Date: Tuesday, 2 June 1987.  Time: 11:23:42.
+C
+C  Correction History:
+C
+C
+C----------------------------------------------------------------------
+C
+C
+C --------------------  General Properties ---------------------
+C
+        EQUIVALENCE (CONST (608), ATMOS2)
+        EQUIVALENCE (CONST (681),  MOLWT), (CONST (682),   SOLG)
+        EQUIVALENCE (CONST (683),  VAPRG), (CONST (684),   LKOW)
+        EQUIVALENCE (CONST (685),SFLG(1)), (CONST (686),SFLG(2))
+        EQUIVALENCE (CONST (687),SFLG(3)), (CONST (688),SFLG(4))
+C
+C
+C
+C ---------------------- Ionization -----------------------------
+C
+        EQUIVALENCE (CONST (691), PKA(1)), (CONST (692), PKA(2))
+        EQUIVALENCE (CONST (693), PKA(3)), (CONST (694), PKA(4))
+        EQUIVALENCE (CONST (695),EPKA(1)), (CONST (696),EPKA(2))
+        EQUIVALENCE (CONST (697),EPKA(3)), (CONST (698),EPKA(4))
+        EQUIVALENCE (CONST (699),TREFI)
+C
+C
+C ---------------------- Sorption ------------------------------
+C
+        EQUIVALENCE (CONST (701),     LKOC), (CONST (702),       A0)
+        EQUIVALENCE (CONST (703),       A1), (CONST (706),   NUX(1))
+        EQUIVALENCE (CONST (711),PIXC(1,1)), (CONST (726), PIDOC(1))
+C
+C
+C ------------------------ Volatilization ----------------------------
+C
+        EQUIVALENCE (CONST (736),       XV), (CONST (737),    HENRY)
+        EQUIVALENCE (CONST (738),      KLT), (CONST (739),     KVOG)
+        EQUIVALENCE (CONST (740),       KV)
+C
+C
+C -------------------- Microbial Degradation -------------------------
+C
+        EQUIVALENCE (CONST (741),      KBW), (CONST (742),      KBS)
+        EQUIVALENCE (CONST (743),     THBW), (CONST (744),     THBS)
+        EQUIVALENCE (CONST (746),KBIO20(1,1)),(CONST (761),Q10DIS(1))
+        EQUIVALENCE (CONST (766),Q10DOC(1)), (CONST (771),Q10PAR(1))
+        EQUIVALENCE (CONST (776),    YBW21), (CONST (777),    YBW23)
+        EQUIVALENCE (CONST (778),    YBS21), (CONST (779),    YBS23)
+C
+C
+C ------------------------- Hydrolysis ------------------------------
+C
+        EQUIVALENCE (CONST (781),     KHOH), (CONST (782),      KHN)
+        EQUIVALENCE (CONST (783),      KHH), (CONST (784),    TREFH)
+        EQUIVALENCE (CONST (786), KH20(1,1,1))
+        EQUIVALENCE (CONST (831),  EHOH(1)), (CONST (836),   EHN(1))
+        EQUIVALENCE (CONST (841),   EHH(1)), (CONST (846),   YHOH21)
+        EQUIVALENCE (CONST (847),   YHOH23), (CONST (848),    YHN21)
+        EQUIVALENCE (CONST (849),    YHN23), (CONST (850),    YHH21)
+        EQUIVALENCE (CONST (851),    YHH23), (CONST (852),    THHOH)
+        EQUIVALENCE (CONST (853),     THHN), (CONST (854),     THHH)
+C
+C
+C ------------------------- Oxidation -------------------------------
+C
+        EQUIVALENCE (CONST (856),       KO), (CONST (857),      THO)
+        EQUIVALENCE (CONST (858),    TREFO), (CONST (861),KOX20(1,1))
+        EQUIVALENCE (CONST (876),   EOX(1)), (CONST (881),    YOX21)
+        EQUIVALENCE (CONST (882),    YOX23)
+C
+C ------------------------- Photolysis ----------------------------
+C
+        EQUIVALENCE (CONST (886),   XPHOTO), (CONST (887),       KF)
+        EQUIVALENCE (CONST (888),    RFLATG), (CONST (889),      THF)
+        EQUIVALENCE (CONST (891),  KDPG(1))
+        EQUIVALENCE (CONST (896),LAMAXG(1)), (CONST (901), ABS21(1))
+        EQUIVALENCE (CONST (951), ABS22(1)), (CONST(1001), ABS23(1))
+        EQUIVALENCE (CONST(1051), ABS24(1)), (CONST(1101), ABS25(1))
+        EQUIVALENCE (CONST(1151),QUANTG(1,1))
+        EQUIVALENCE (CONST(1166),     YF21), (CONST(1167),     YF23)
+C
+C
+C ----------------------- Extra Reactions ---------------------------
+C
+        EQUIVALENCE (CONST(1171),       KE), (CONST (1172),     THE)
+        EQUIVALENCE (CONST(1173),    TREFE), (CONST(1176),KE20(1,1))
+        EQUIVALENCE (CONST(1191),   EEX(1)), (CONST(1196),     YE21)
+        EQUIVALENCE (CONST(1197),     YE23)
+C
+C---------------------  End of Chem 2 Equivalences  -------------------
+
